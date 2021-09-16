@@ -921,6 +921,16 @@ public class RedisResultSet implements ResultSet {
 	}
 
 	@Override
+	public <T> T getObject(int i, Class<T> aClass) throws SQLException {
+		return null;
+	}
+
+	@Override
+	public <T> T getObject(String s, Class<T> aClass) throws SQLException {
+		return null;
+	}
+
+	@Override
 	public void updateNClob(int arg0, Reader arg1, long arg2)
 			throws SQLException {
 		throw new SQLFeatureNotSupportedException();

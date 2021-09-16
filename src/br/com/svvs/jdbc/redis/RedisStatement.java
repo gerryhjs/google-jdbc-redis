@@ -211,6 +211,56 @@ public class RedisStatement extends RedisAbstractStatement implements Statement 
 	}
 
 	@Override
+	public void closeOnCompletion() throws SQLException {
+
+	}
+
+	@Override
+	public boolean isCloseOnCompletion() throws SQLException {
+		return false;
+	}
+
+	@Override
+	public long getLargeUpdateCount() throws SQLException {
+		return Statement.super.getLargeUpdateCount();
+	}
+
+	@Override
+	public void setLargeMaxRows(long l) throws SQLException {
+		Statement.super.setLargeMaxRows(l);
+	}
+
+	@Override
+	public long getLargeMaxRows() throws SQLException {
+		return Statement.super.getLargeMaxRows();
+	}
+
+	@Override
+	public long[] executeLargeBatch() throws SQLException {
+		return Statement.super.executeLargeBatch();
+	}
+
+	@Override
+	public long executeLargeUpdate(String s) throws SQLException {
+		return Statement.super.executeLargeUpdate(s);
+	}
+
+	@Override
+	public long executeLargeUpdate(String s, int i) throws SQLException {
+		return Statement.super.executeLargeUpdate(s, i);
+	}
+
+	@Override
+	public long executeLargeUpdate(String s, int[] ints) throws SQLException {
+		return Statement.super.executeLargeUpdate(s, ints);
+	}
+
+	@Override
+	public long executeLargeUpdate(String s, String[] strings) throws SQLException {
+		return Statement.super.executeLargeUpdate(s, strings);
+	}
+
+	@Override
 	public void setCursorName(String name) throws SQLException {
 	}
 

@@ -19,6 +19,7 @@ import java.sql.Statement;
 import java.sql.Struct;
 import java.util.Map;
 import java.util.Properties;
+import java.util.concurrent.Executor;
 
 public class RedisConnection implements java.sql.Connection {
 	
@@ -134,6 +135,31 @@ public class RedisConnection implements java.sql.Connection {
 	@Override
 	public Struct createStruct(String arg0, Object[] arg1) throws SQLException {
 		throw new SQLFeatureNotSupportedException(NOT_SUPPORTED);
+	}
+
+	@Override
+	public void setSchema(String s) throws SQLException {
+
+	}
+
+	@Override
+	public String getSchema() throws SQLException {
+		return null;
+	}
+
+	@Override
+	public void abort(Executor executor) throws SQLException {
+
+	}
+
+	@Override
+	public void setNetworkTimeout(Executor executor, int i) throws SQLException {
+
+	}
+
+	@Override
+	public int getNetworkTimeout() throws SQLException {
+		return 0;
 	}
 
 	@Override

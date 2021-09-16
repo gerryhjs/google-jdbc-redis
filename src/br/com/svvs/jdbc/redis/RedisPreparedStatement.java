@@ -4,24 +4,7 @@ import java.io.InputStream;
 import java.io.Reader;
 import java.math.BigDecimal;
 import java.net.URL;
-import java.sql.Array;
-import java.sql.Blob;
-import java.sql.Clob;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.NClob;
-import java.sql.ParameterMetaData;
-import java.sql.PreparedStatement;
-import java.sql.Ref;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.RowId;
-import java.sql.SQLException;
-import java.sql.SQLFeatureNotSupportedException;
-import java.sql.SQLWarning;
-import java.sql.SQLXML;
-import java.sql.Time;
-import java.sql.Timestamp;
+import java.sql.*;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -243,6 +226,21 @@ public class RedisPreparedStatement extends RedisAbstractStatement implements Pr
 	@Override
 	public void setNClob(int arg0, Reader arg1) throws SQLException {
 		throw new SQLFeatureNotSupportedException();
+	}
+
+	@Override
+	public void setObject(int i, Object o, SQLType sqlType, int i1) throws SQLException {
+		PreparedStatement.super.setObject(i, o, sqlType, i1);
+	}
+
+	@Override
+	public void setObject(int i, Object o, SQLType sqlType) throws SQLException {
+		PreparedStatement.super.setObject(i, o, sqlType);
+	}
+
+	@Override
+	public long executeLargeUpdate() throws SQLException {
+		return PreparedStatement.super.executeLargeUpdate();
 	}
 
 	@Override
@@ -512,6 +510,56 @@ public class RedisPreparedStatement extends RedisAbstractStatement implements Pr
 	@Override
 	public boolean isPoolable() throws SQLException {
 		return false;
+	}
+
+	@Override
+	public void closeOnCompletion() throws SQLException {
+
+	}
+
+	@Override
+	public boolean isCloseOnCompletion() throws SQLException {
+		return false;
+	}
+
+	@Override
+	public long getLargeUpdateCount() throws SQLException {
+		return PreparedStatement.super.getLargeUpdateCount();
+	}
+
+	@Override
+	public void setLargeMaxRows(long l) throws SQLException {
+		PreparedStatement.super.setLargeMaxRows(l);
+	}
+
+	@Override
+	public long getLargeMaxRows() throws SQLException {
+		return PreparedStatement.super.getLargeMaxRows();
+	}
+
+	@Override
+	public long[] executeLargeBatch() throws SQLException {
+		return PreparedStatement.super.executeLargeBatch();
+	}
+
+	@Override
+	public long executeLargeUpdate(String s) throws SQLException {
+		return PreparedStatement.super.executeLargeUpdate(s);
+	}
+
+	@Override
+	public long executeLargeUpdate(String s, int i) throws SQLException {
+		return PreparedStatement.super.executeLargeUpdate(s, i);
+	}
+
+	@Override
+	public long executeLargeUpdate(String s, int[] ints) throws SQLException {
+		return PreparedStatement.super.executeLargeUpdate(s, ints);
+	}
+
+	@Override
+	public long executeLargeUpdate(String s, String[] strings) throws SQLException {
+		return PreparedStatement.super.executeLargeUpdate(s, strings);
 	}
 
 	@Override

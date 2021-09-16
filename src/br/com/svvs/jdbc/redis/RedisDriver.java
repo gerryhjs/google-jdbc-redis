@@ -2,12 +2,9 @@ package br.com.svvs.jdbc.redis;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.sql.Connection;
-import java.sql.Driver;
-import java.sql.DriverManager;
-import java.sql.DriverPropertyInfo;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 public class RedisDriver implements Driver {
 	
@@ -88,6 +85,11 @@ public class RedisDriver implements Driver {
 	public boolean jdbcCompliant() {
 		// still not compliant
 		return false;
+	}
+
+	@Override
+	public Logger getParentLogger() throws SQLFeatureNotSupportedException {
+		return null;
 	}
 
 }
